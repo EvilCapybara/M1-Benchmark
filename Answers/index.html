@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>M1 Benchmark</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1 class="change-font" onclick="changeHeading()">Benchmark for Strive Module 1</h1>
+    <span>(if click on heading it will change)</span>
+    <h2>My top 4 favoutite games</h2>
+
+<div class="ordered-list">
+    <ol>
+        <li>Final Fantasy XIV</li>
+        <li>League of Legends</li>
+        <li>Path of Exile</li>
+        <li>Fortnite</li>
+    </ol>
+</div>
+
+<div>
+    <table id="my-only-table">
+        <tr class="table-row">
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        <tr class="table-row ">
+            <td class="game-logo ffxiv"><a href="https://www.finalfantasyxiv.com/"><img src="/img/ffxivlogo.jpg" alt=""></td></a>
+            <td>Final Fantasy XIV</td>
+            <td>MMORPG</td>
+            <td>Final Fantasy XIV is an MMORPG and features a persistent world in which players can interact with each other and the environment.</td>
+            <td>Something</td>
+        </tr>
+        <tr class="table-row ">
+            <td class="game-logo League"><a href="https://na.leagueoflegends.com/en-us/"><img src="/img/leaguelogo.png" alt=""></td></a>
+            <td>League of Legends</td>
+            <td>Strategy game</td>
+            <td>League of Legends is a team-based strategy game where two teams of five powerful champions face off to destroy the other’s base. Choose from over 140 champions to make epic plays, secure kills, and take down towers as you battle your way to victory.</td>
+            <td>Something</td>
+        </tr>
+        <tr class="table-row ">
+            <td class="game-logo exile"><a href="https://www.pathofexile.com/"><img src="/img/pathlogo.png" alt=""></td></a>
+            <td>Path of Exile</td>
+            <td>online Action RPG</td>
+            <td>Path of Exile is an online Action RPG set in the dark fantasy world of Wraeclast. It is designed around a strong online item economy, deep character customisation, competitive PvP and ladder races.</td>
+            <td>Something</td>
+        </tr>
+        <tr class="table-row">
+            <td class="game-logo fortnite"><a href="https://www.epicgames.com/fortnite/en-US/home"><img src="/img/fotnitelogo.jpg" alt=""></td></a>
+            <td>Fortnite</td>
+            <td>Battle Royale</td>
+            <td>Fortnite is a free-to-play Battle Royale game with numerous game modes for every type of game player</td>
+            <td>Something</td>
+        </tr>
+        <button onclick="addRows()" class="add-rows">Generate new row</button>
+    </table>
+</div>
+
+<div class="line">
+
+</div>
+
+
+<button class="class-test" onclick="newItems()">Add new items to the list</button>
+<button class="class-test" onclick="clearList()">Clear list</button>
+<div id="container">
+    <p>Ul list with items</p>
+    <ul class="unordered-list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+</div>
+
+
+
+
+
+<footer>
+    <div class="about-me">
+        <h1>Hello, My name is Raia and I am student at Strive.</h1>
+        <img src="/img/zenia.jpg" alt="">
+        <p>I live in UK, Bristol for almost 9 years now. 
+            I love cats and capybaras, at free time I like playing computer games and code.
+            On the picture is me and my twin sister (We are so different)
+        </p>
+    </div>
+
+    <div class="send-message">
+        <h1>Let's chat</h1>
+        <input type="text" placeholder="Send me a message" class="text-input">
+        <button class="btn-submit">Send</button>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    //31) Get element with ID "container" from the page
+    let ourContainer = document.getElementById("container")
+    //32) Get every "td" from the page
+    let allTD = document.getElementsByTagName("td") //It gives me an array of all the td on the page which I can access by their index
+
+    //33) Create a cycle that prints the text inside every td of the page
+        const printText = function(){
+        let findTableCells = document.getElementById("my-only-table").querySelectorAll("td")
+        for(let i = 0; i< findTableCells.length;i++){
+            let indexes = findTableCells[i]
+        indexes.innerText = "This is the new text here"
+        }
+
+        }
+
+    //34) Write a function to change the heading of the page
+    const changeHeading = function(){ 
+        let firstHeading = document.getElementsByTagName("h1")[0]
+        firstHeading.classList.toggle("to-change-heading")
+    }
+    //35) Write a function to add an extra row to the table
+    const addRows = function(){
+        let newRow = document.createElement("tr")
+        let newCell = document.createElement("td")
+        newRow.innerText = "New row"
+        newRow.style.width = "100px"
+        newRow.style.height = "150px"
+        newRow.style.backgroundColor = "pink"
+        let findTable = document.getElementsByTagName("table")[0]
+        findTable.appendChild(newRow)
+        newRow.appendChild(newCell)
+    }
+
+    //36) Write a function to add the class "test" to each row in the table
+   
+    // 37) Write a function to add a red background to every link in the page
+    const allLinks = function(){
+    document.getElementsByTagName("a")[0]
+    for(let i = 0; i<allLinks.length; i++){
+        allLinks.style.backgroundColor = "red"
+    }
+    }
+
+    // 38) Console log "Page loaded" when the page is correctly loaded
+    window.onload = console.log("page loaded")
+
+
+    //39) Write a function to add new items to a UL
+    const newItems = function(){
+        let createLi = document.createElement("li")
+        createLi.innerText = "I am a new item"
+        let location = document.getElementsByTagName("ul")[0]
+        location.appendChild(createLi)
+    }
+    
+
+    //40) Write a function to empty a list
+    const clearList = function (){
+        let findList = document.querySelectorAll(".unordered-list")[0]
+        findList.innerText = ""
+        }
+    
+
+</script>
+</body>
+</html>
